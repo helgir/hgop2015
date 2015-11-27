@@ -1,0 +1,13 @@
+#Tól
+
+* Vagrant - Er tól sem notað er til að þróa heilt þróunarumhverfi. Vagrant gerir það auðveldara að vinna með sýndarvélum
+
+* VirtualBox - Er forrit sem sett er upp til þess að geta unnið á öðru stýrikerfi á vélinni þinni.
+
+* Grunt - Auðveldar þér þegar þú ert með stórt verkefni, sér um að keyra fyrir þig prufanir og búa til keyrslu skrá svo að maður þurfi ekki að gera það handvirkt.
+
+* npm - Gerir það auðveldara fyrir javascript forritara að deila og endurnota kóða, og að uppfæra hann.
+
+* nodejs - Keyrslu umhverfi sem virkar þverkerfa til að þroa netþjóna fyrir vefkerfi
+
+* bower - Nær í og installar pökkum, sér um að finna, niðurhala og vista því sem þú varst að leita af. Bower heldur utan um pakkana í skrá. Að auki sér hann um söfn og eiginleika sem koma frá vefsíðu
