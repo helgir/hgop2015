@@ -2,15 +2,28 @@
 
 echo Cleaning...
 rm -rf ./dist
+export DISPLAY=:0
+
 echo Building app
 grunt
-EXITC=$?; if [[ $EXITC != 0 ]]; then exit $EXITC; fi
+gruntexit=$?; 
+if [[ $gruntexit != 0 ]]; 
+	then 
+		exit $gruntexit; 
+fi
+
+
 cp ./Dockerfile ./dist/
+
 cd dist
 npm install --production
+
 echo Building docker image
 docker build -t helgir/tictactoe .
-EXITC=$?; if [[ $EXITC != 0 ]]; then exit $EXITC; fi
+buildexit=$?; 
+if [[ $buildexit != 0 ]]; 
+	then 
+		exit $buildexit; 
+fi
+
 echo "Done"
-
-
