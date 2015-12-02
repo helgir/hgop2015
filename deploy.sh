@@ -1,23 +1,19 @@
 #!/bin/bash
 
 echo Development Enviroment 
-cd ./vagrant
-vagrant up
 
 echo Pushing newest
-vagrant ssh -c 'docker login --username=helgir --password=$DOCKER_PASS --email=$DOCKER_EMAIL &&
-				docker push helgir/tictactoe
-				exit'
-
-
+sudo service docker start
+docker login --username=helgir --password=$DOCKER_PASS --email=$DOCKER_EMAIL &&
+docker push helgir/tictactoe
+				
 echo Pulling newest on Testing Machine
-cd ../Testingmachine
-vagrant up
-vagrant ssh -c '(DOCKER=$(docker ps -q) 
+
+ssh vagrant@192.168.50.4 
+				'
 				if [ ! -z "$DOCKER" ]
-				then docker kill $DOCKER
-			    fi && docker pull helgir/tictactoe)
+				then docker kill $(DOCKER ps -q)
+			    fi
+			    docker pull helgir/tictactoe
 				docker run -p 8080:8080 -d -e "NODE_ENV=production" helgir/tictactoe
-			    '
-
-
+			    ' 
