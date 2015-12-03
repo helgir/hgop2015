@@ -2,10 +2,10 @@
 
 echo Development Enviroment 
 
-echo Pushing newest
-sudo service docker start
-docker login --username=helgir --password=$DOCKER_PASS --email=$DOCKER_EMAIL &&
-docker push helgir/tictactoe
+#echo Pushing newest
+#sudo service docker start
+#docker login --username=helgir --password=$DOCKER_PASS --email=$DOCKER_EMAIL &&
+#docker push helgir/tictactoe
 				
 echo Pulling newest on Testing Machine
 
