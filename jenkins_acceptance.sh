@@ -2,4 +2,4 @@
 
 ./deploy.sh
 
-exit 0
+exit $?
