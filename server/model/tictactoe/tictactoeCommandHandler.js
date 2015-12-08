@@ -35,7 +35,7 @@ module.exports = function tictactoeCommandHandler(events) {
 
   return {
     executeCommand: function (cmd) {
-      return handlers[cmd.comm](cmd);
+      return handlers[cmd.command](cmd);
     }
   };
 };
