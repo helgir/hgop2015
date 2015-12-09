@@ -1,0 +1,46 @@
+# Test examples
+
+
+### Create game
+* Precondition: None.
+* When: A user creates a game.
+* Then: A game a game is created.
+
+### Join Game
+* Precondition: Game is created.
+* When: User joins a game.
+* Then: User has joined created game.
+
+### Game is not created
+* Precondition: Game is not created
+* When: User joins a game.
+* Then: User does not join a game, becouse it does not exist.
+
+### Make a play
+* Precondition: Game is created, Player has joined game
+* When: User clicks on box
+* Then: The box is selected with the users credidentials
+
+### Make a play that is not available
+* Precondition: Game is created, Player has joined game, Box is already filled
+* When: User clicks on box
+* Then: Box is not selected
+
+### Win 
+## Win with complete diagonal boxes
+* Precondition: Game is created, Player has joined game, User has moved
+* When: User has selected box that completes diagnoal
+* Then: User wins a game
+## Win with complete column
+* Precondition: Game is created, Player has joined game, User has moved
+* When: User has selected box that completes column
+* Then: User wins a game
+## Win with complete a row
+* Precondition: Game is created, Player has joined game, User has moved
+* When: User has selected box that completes a row
+* Then: User wins a game
+
+### Draw 
+* Precondition: Game is created, Player has joined game, User has moved
+* When: Users has clicked on all boxes
+* Then: Its a draw
