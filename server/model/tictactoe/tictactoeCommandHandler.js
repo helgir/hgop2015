@@ -29,6 +29,7 @@ module.exports = function tictactoeCommandHandler(events) {
           otherUserName: gameCreatedEvent.userName,
           timeStamp: cmd.timeStamp
         }];
+
       }
     }
   };
