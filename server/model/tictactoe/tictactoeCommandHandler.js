@@ -41,6 +41,21 @@ module.exports = function tictactoeCommandHandler(events) {
         return false
       }
     },
+    'DiagonalWin': function(x, y, side) {
+      if (gameState.board[0][0] === side &&
+        gameState.board[1][1] === side &&
+        gameState.board[2][2] === side) {
+        return true;
+      }
+      else if (gameState.board[0][2] === side &&
+        gameState.board[1][1] === side &&
+        gameState.board[2][0] === side) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    },
 
   };
 
@@ -60,7 +75,10 @@ module.exports = function tictactoeCommandHandler(events) {
         }];
       }
       gameState.board[cmd.x][cmd.y] = cmd.side;
-      if (logicState.RowWin(cmd.x, cmd.y, cmd.side) || logicState.ColumnWin(cmd.x, cmd.y, cmd.side)) {
+
+      if (logicState.RowWin(cmd.x, cmd.y, cmd.side) ||
+        logicState.ColumnWin(cmd.x, cmd.y, cmd.side) ||
+        logicState.DiagonalWin(cmd.x, cmd.y, cmd.side)) {
         return [{
           id:cmd.id,
           event:"GameWon",
