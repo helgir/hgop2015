@@ -69,6 +69,33 @@ describe('when game is won', function() {
       JSON.stringify(actualEvents).should.be.exactly(JSON.stringify(then));
     })
   });
+  describe('on a complete column', function() {
+    it('should win game', function() {
+      when = {
+        id: "123456",
+        command: "MakeMove",
+        userName: "Helgi",
+        x: 2,
+        y: 1,
+        side:'X',
+        timeStamp: "2015.12.04T23:52:00"
+      };
+      then = [{
+        id: "123456",
+        event: "GameWon",
+        userName: "Helgi",
+        x: 2,
+        y: 1,
+        side: 'X',
+        timeStamp: "2015.12.04T23:52:00"
+      }];
+
+      var actualEvents = tictactoeCommandHandler(given).executeCommand(when);
+
+      JSON.stringify(actualEvents).should.be.exactly(JSON.stringify(then));
+    })
+  });
+
 });
 
 
