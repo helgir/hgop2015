@@ -57,6 +57,17 @@ module.exports = function tictactoeCommandHandler(events) {
       }
     },
 
+    'Draw' : function () {
+      for(var i = 0; i < 3; i++) {
+        for (var j = 0; j < 3; j++) {
+          if (gameState.board[i][j] === '') {
+            return false;
+          }
+        }
+      }
+      return true;
+    }
+
   };
 
   var handlers = {
@@ -82,6 +93,19 @@ module.exports = function tictactoeCommandHandler(events) {
         return [{
           id:cmd.id,
           event:"GameWon",
+          userName:cmd.userName,
+          name:cmd.name,
+          x:cmd.x,
+          y:cmd.y,
+          side:cmd.side,
+          timeStamp:cmd.timeStamp
+        }]
+      }
+      if (logicState.Draw()) {
+        console.log(gameState.board)
+        return [{
+          id:cmd.id,
+          event:"GameDraw",
           userName:cmd.userName,
           name:cmd.name,
           x:cmd.x,
