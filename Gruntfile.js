@@ -1,4 +1,3 @@
-// Generated on 2014-11-25 using generator-angular-fullstack 2.0.13
 'use strict';
 
 module.exports = function (grunt) {
@@ -70,8 +69,8 @@ module.exports = function (grunt) {
         tasks: ['injector:css']
       },
       mochaTest: {
-        files: ['server/**/*.spec.js'],
-        tasks: ['env:test', 'mochaTest']
+        files: ['server/**/*.js'],
+        tasks: ['env:test', 'mochaTest:test']
       },
       jsTest: {
         files: [
@@ -130,6 +129,8 @@ module.exports = function (grunt) {
         },
         src: [
           'server/**/*.js',
+          '!server/**/*.acceptance.js',
+          '!server/**/*.load.js',
           '!server/**/*.spec.js'
         ]
       },
@@ -137,7 +138,11 @@ module.exports = function (grunt) {
         options: {
           jshintrc: 'server/.jshintrc-spec'
         },
-        src: ['server/**/*.spec.js']
+        src: [
+          'server/**/*.spec.js',
+          'server/**/*.acceptance.js',
+          'server/**/*.load.js'
+        ]
       },
       all: [
         '<%= yeoman.client %>/{app,components}/**/*.js',
@@ -434,12 +439,28 @@ module.exports = function (grunt) {
     },
 
     mochaTest: {
-      options: {
-        reporter: 'spec'
+      test: {
+        options: {
+          reporter: process.env.MOCHA_REPORTER || 'spec',
+          captureFile: 'server-tests'
+        },
+        src: ['server/**/*.spec.js']
       },
-      src: ['server/**/*.spec.js']
+      acceptance: {
+        options: {
+          reporter: process.env.MOCHA_REPORTER || 'spec',
+          captureFile: 'acceptance-tests'
+        },
+        src: ['server/**/*.acceptance.js']
+      },
+      load: {
+        options: {
+          reporter: process.env.MOCHA_REPORTER || 'spec',
+          captureFile: 'load-tests'
+        },
+        src: ['server/**/*.load.js']
+      }
     },
-
     protractor: {
       options: {
         configFile: 'protractor.conf.js'
@@ -496,11 +517,11 @@ module.exports = function (grunt) {
         },
         files: {
           '<%= yeoman.client %>/index.html': [
-              ['{.tmp,<%= yeoman.client %>}/{app,components}/**/*.js',
-               '!{.tmp,<%= yeoman.client %>}/app/app.js',
-               '!{.tmp,<%= yeoman.client %>}/{app,components}/**/*.spec.js',
-               '!{.tmp,<%= yeoman.client %>}/{app,components}/**/*.mock.js']
-            ]
+            ['{.tmp,<%= yeoman.client %>}/{app,components}/**/*.js',
+              '!{.tmp,<%= yeoman.client %>}/app/app.js',
+              '!{.tmp,<%= yeoman.client %>}/{app,components}/**/*.spec.js',
+              '!{.tmp,<%= yeoman.client %>}/{app,components}/**/*.mock.js']
+          ]
         }
       },
 
@@ -601,10 +622,16 @@ module.exports = function (grunt) {
       return grunt.task.run([
         'env:all',
         'env:test',
-        'mochaTest'
+        'mochaTest:test'
       ]);
     }
-
+    else if (target === 'acceptance') {
+      return grunt.task.run([
+        'env:all',
+        'env:test',
+        'mochaTest:acceptance'
+      ]);
+    }
     else if (target === 'client') {
       return grunt.task.run([
         'clean:server',
@@ -633,9 +660,9 @@ module.exports = function (grunt) {
     }
 
     else grunt.task.run([
-      'test:server',
-      'test:client'
-    ]);
+        'test:server',
+        'test:client'
+      ]);
   });
 
   grunt.registerTask('build', [
@@ -659,7 +686,8 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', [
     'newer:jshint',
-    'test',
+    'test:server',
+    'test:client',
     'build'
   ]);
 };
