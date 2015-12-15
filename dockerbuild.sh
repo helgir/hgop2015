@@ -17,6 +17,11 @@ cp ./Dockerfile ./dist/
 
 cd dist
 npm install --production
+buildexit=$?; 
+if [[ $buildexit != 0 ]]; 
+	then 
+		exit $buildexit; 
+fi
 
 echo Building docker image
 docker build -t helgir/tictactoe .
