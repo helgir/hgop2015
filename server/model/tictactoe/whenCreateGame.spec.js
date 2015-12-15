@@ -14,7 +14,9 @@ describe('create game command', function(){
     };
     then=[{
       id:"1337",
+      name: "FirstGame",
       event:"GameCreated",
+
       userName: "Helgi",
       timeStamp: "2015.12.02T11:29:44"
     }];
@@ -35,6 +37,7 @@ describe('create game command', function(){
     };
     then=[{
       id:"2337",
+      name:"SecondGame",
       event:"GameCreated",
       userName: "Siggi",
       timeStamp: "2015.12.02T10:29:44"

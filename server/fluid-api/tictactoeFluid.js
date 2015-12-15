@@ -11,10 +11,15 @@ function given(userApi) {
     "event": "EventName",
     "userName": userApi._command.userName,
     "name": userApi._command.gameId,
-    "timeStamp": "2014-12-02T11:29:29"
   }];
   var _currentEvent = 0;
   var expectApi = {
+    and: function (userCommand) {
+      userCommand.name = userApi.name;
+      userCommand.gameId = userApi.gameId;
+      userCommand.otherUserName = userApi.userName;
+      return expectApi;
+    },
     withName: function (gameName) {
       _expectedEvents[_currentEvent].name = gameName;
       return expectApi;
@@ -52,20 +57,22 @@ function given(userApi) {
 
 function user(userName) {
   var userApi = {
-    _command: undefined,
+    _command: {
+      gameId: undefined,
+      id: "1234",
+      userName: userName,
+      command: undefined,
+      destination: undefined,
+      name: undefined
+    },
     createsGame: function (gameId) {
-      userApi._command = {
-        id: "1234",
-        gameId: gameId,
-        command: "CreateGame",
-        userName: userName,
-        name: gameId,
-        timeStamp: "2014-12-02T11:29:29"
-      };
+      userApi._command.gameId = gameId;
+      userApi._command.command = "CreateGame";
+      userApi._command.destination = '/api/createsGame';
       return userApi;
     },
-    withId : function(gameId){
-      userApi._command.gameId = gameId;
+    named: function(gamename) {
+      userApi._command.name = gamename;
       return userApi;
     }
   };

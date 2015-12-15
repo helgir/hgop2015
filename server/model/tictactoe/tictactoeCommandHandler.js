@@ -131,6 +131,7 @@ module.exports = function tictactoeCommandHandler(events) {
         return [{
           id: cmd.id,
           gameId: cmd.gameId,
+          name:cmd.name,
           event: "GameCreated",
           userName: cmd.userName,
           timeStamp: cmd.timeStamp

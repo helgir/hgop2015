@@ -56,8 +56,7 @@ describe('TEST ENV GET /api/gameHistory', function () {
 
 
   it('Should execute fluid API test', function (done) {
-    given(user("YourUser").createsGame("TheFirstGame"))
+    given(user("YourUser").createsGame("Gameid1").named("TheFirstGame"))
       .expect("GameCreated").withName("TheFirstGame").isOk(done);
   });
-
 });
