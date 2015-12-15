@@ -23,7 +23,7 @@ echo Docker login failed.
 exit $exitcode
 fi
 echo 'Pushing to docker'
-docker push kthorri/tictactoe
+docker push helgir/tictactoe
 exitcode=$?
 if [ $exitcode != 0 ]; then
 echo Docker push failed.
