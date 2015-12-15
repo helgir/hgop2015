@@ -1,1 +1,1 @@
-{"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/helgir/Desktop/Hagnýt/hgop2015/Testingmachine","disabled":false},"/home/vagrant/src/tictactoe":{"guestpath":"/home/vagrant/src/tictactoe","hostpath":"/Users/helgir/Desktop/Hagnýt/hgop2015","disabled":false}}}
+{"virtualbox":{"/home/vagrant/src/tictactoe":{"guestpath":"/home/vagrant/src/tictactoe","hostpath":"/Users/helgir/Desktop/Hagnýt/hgop2015","disabled":false},"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/helgir/Desktop/Hagnýt/hgop2015/Testingmachine","disabled":false}}}
