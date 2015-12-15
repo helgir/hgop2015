@@ -1,3 +1,5 @@
+'use strict';
+
 var should = require('should');
 var request = require('supertest');
 var acceptanceUrl = process.env.ACCEPTANCE_URL;
@@ -55,7 +57,7 @@ function user(userName) {
       userApi._command = {
         id: "1234",
         gameId: gameId,
-        comm: "CreateGame",
+        command: "CreateGame",
         userName: userName,
         name: gameId,
         timeStamp: "2014-12-02T11:29:29"
