@@ -9,7 +9,7 @@ npm install
 echo 'Starting bower install'
 bower install
 echo 'Starting dockerbuild'
-./bin/Docker/dockerbuild.sh
+./dockerbuild.sh
 exitcode=$?
 if [ $exitcode != 0 ]; then
 exit $exitcode
