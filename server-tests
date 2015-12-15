@@ -11,9 +11,9 @@ Resulting event for  { id: '1337',
     event: 'GameCreated',
     userName: 'helgir',
     timeStamp: '2015.12.08T11:24:30' } ]
-[90mPOST /api/createGame [32m200 [90m14ms - 106b[0m
-[90mGET /api/gameHistory/999 [32m200 [90m3ms - 106b[0m
-[2K[0G  [32m  ✓[0m[90m should respond with JSON array with created events for game [0m[31m(160ms)[0m
+[90mPOST /api/createGame [32m200 [90m18ms - 106b[0m
+[90mGET /api/gameHistory/999 [32m200 [90m4ms - 106b[0m
+[2K[0G  [32m  ✓[0m[90m should respond with JSON array with created events for game [0m[31m(152ms)[0m
 
 [0m  In memory store[0m
 [2K[0G  [32m  ✓[0m[90m Should return empty array for unknown id [0m
@@ -54,5 +54,5 @@ Resulting event for  { gameId: '123' }  are  { state: 'fulfilled', value: [] }
 [2K[0G    [32m  ✓[0m[90m placing move in same place should be illegal [0m
 
 
-[92m [0m[32m 16 passing[0m[90m (246ms)[0m
+[92m [0m[32m 16 passing[0m[90m (230ms)[0m
 
