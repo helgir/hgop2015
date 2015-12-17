@@ -16,7 +16,6 @@ describe('create game command', function(){
       id:"1337",
       name: "FirstGame",
       event:"GameCreated",
-
       userName: "Helgi",
       timeStamp: "2015.12.02T11:29:44"
     }];
@@ -25,7 +24,6 @@ describe('create game command', function(){
 
     JSON.stringify(actualEvents).should.be.exactly(JSON.stringify(then));
   });
-
   it('should create game with another user another time',function(){
     given= [];
     when={

@@ -43,6 +43,7 @@ function given(userApi) {
     isOk: function (done) {
       var req = request(acceptanceUrl);
       loop.each(_users, function(userComm) {
+        console.log(userComm._command);
 
         req
           .post(userComm._command.destination)
@@ -81,7 +82,7 @@ function user(userName) {
       userName: userName,
       command: undefined,
       destination: undefined,
-      //name: undefined
+      name: undefined
     },
     createsGame: function (gameId) {
       userApi._command.gameId = gameId;

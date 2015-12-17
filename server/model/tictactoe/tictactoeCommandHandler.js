@@ -77,6 +77,7 @@ module.exports = function tictactoeCommandHandler(events) {
         return [{
           id: cmd.id,
           event: "IllegalMove",
+          gameId: cmd.gameId,
           userName: cmd.userName,
           name:gameState.gameCreatedEvent.name,
           x:cmd.x,
@@ -93,6 +94,7 @@ module.exports = function tictactoeCommandHandler(events) {
         return [{
           id:cmd.id,
           event:"GameWon",
+          gameId: cmd.gameId,
           userName:cmd.userName,
           name:cmd.name,
           x:cmd.x,
@@ -106,6 +108,7 @@ module.exports = function tictactoeCommandHandler(events) {
         return [{
           id:cmd.id,
           event:"GameDraw",
+          gameId: cmd.gameId,
           userName:cmd.userName,
           name:cmd.name,
           x:cmd.x,
@@ -117,6 +120,7 @@ module.exports = function tictactoeCommandHandler(events) {
       return [{
         id: cmd.id,
         event: "MoveMade",
+        gameId: cmd.gameId,
         userName: cmd.userName,
         name:gameState.gameCreatedEvent.name,
         x:cmd.x,
@@ -151,6 +155,7 @@ module.exports = function tictactoeCommandHandler(events) {
         }
         return [{
           id: cmd.id,
+          gameId: cmd.gameId,
           event: "GameJoined",
           userName: cmd.userName,
           otherUserName: gameCreatedEvent.userName,

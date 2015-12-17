@@ -2,7 +2,13 @@
 [0m[0m
 [0m  TEST ENV GET /api/gameHistory[0m
 [2K[0G  [32m  ✓[0m[90m Should have ACCEPTANCE_URL environment variable exported. [0m
-[2K[0G  [32m  ✓[0m[90m should execute same test using old style [0m[31m(122ms)[0m
+[2K[0G  [32m  ✓[0m[90m should execute same test using old style [0m[31m(91ms)[0m
+{ id: '1234',
+  userName: 'YourUser',
+  command: 'CreateGame',
+  destination: '/api/createGame',
+  name: 'TheFirstGame',
+  gameId: 'Gameid1' }
 { id: '1234',
   gameId: 'Gameid1',
   name: 'TheFirstGame',
@@ -10,11 +16,23 @@
   userName: 'YourUser' }
 [2K[0G  [32m  ✓[0m[90m Should execute fluid API test [0m
 { id: '1234',
+  userName: 'Bjarni',
+  command: 'CreateGame',
+  destination: '/api/createGame',
+  name: 'Game1',
+  gameId: 'id1' }
+{ id: '1234',
+  userName: 'Siggi',
+  command: 'JoinGame',
+  destination: '/api/joinGame',
+  name: undefined,
+  gameId: 'id1' }
+{ id: '1234',
   event: 'GameJoined',
   userName: 'Siggi',
   otherUserName: 'Bjarni' }
 [2K[0G  [31m  1) Should allow user to join created game[0m
 
 
-[92m [0m[32m 3 passing[0m[90m (177ms)[0m
+[92m [0m[32m 3 passing[0m[90m (145ms)[0m
 
