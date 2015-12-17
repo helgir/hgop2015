@@ -59,10 +59,10 @@ describe('TEST ENV GET /api/gameHistory', function () {
     given(user("YourUser").createsGame("Gameid1").named("TheFirstGame"))
       .expect("GameCreated").withName("TheFirstGame").isOk(done);
   });
-  /*it('Should allow user to join created game', function(done)
+  it('Should allow user to join created game', function(done)
   {
     given(user("Bjarni").createsGame("id1").named("Game1"))
       .and(user("Siggi").joinsGame("id1"))
       .expect("GameJoined").withName("Game1").isOk(done);
-  });*/
+  });
 });

@@ -60,8 +60,10 @@ function given(userApi) {
 
           if (err) return done(err);
           res.body.should.be.instanceof(Array);
-          should(res.body[res.body.length-1]).eql(
-            _expectedEvents[_expectedEvents.length-1]);
+          console.log(res.body[res.body.length-1]);
+          should(res.body[res.body.length-1].gameId).eql(_expectedEvents[_expectedEvents.length-1].gameId);
+          should(res.body[res.body.length-1].userName).eql(_expectedEvents[_expectedEvents.length-1].userName);
+          should(res.body[res.body.length-1].event).eql(_expectedEvents[_expectedEvents.length-1].event);
 
           done();
         });
@@ -91,6 +93,7 @@ function user(userName) {
       userApi._command.gameId = gameId;
       userApi._command.command = "JoinGame";
       userApi._command.destination = '/api/joinGame';
+
       return userApi;
     },
     named: function(gamename) {
