@@ -8,14 +8,12 @@ describe('join game command', function(){
   it('should join game',function(){
     given= [{
       id:"333",
-      gameId: "1234",
       event:"GameCreated",
       userName: "Helgi",
       timeStamp: "2015.12.02T11:29:44"
     }];
     when={
       id:"444",
-      gameId: "1234",
       command:"JoinGame",
       userName : "Signy",
       name:"TheFirstGame",
@@ -23,7 +21,6 @@ describe('join game command', function(){
     };
     then=[{
       id:"444",
-      gameId: "1234",
       event:"GameJoined",
       userName: "Signy",
       otherUserName: "Helgi",

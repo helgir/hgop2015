@@ -63,6 +63,6 @@ describe('TEST ENV GET /api/gameHistory', function () {
   {
     given(user("Bjarni").createsGame("id1").named("Game1"))
       .and(user("Siggi").joinsGame("id1"))
-      .expect("GameJoined").withName("Game1").isOk(done);
+      .expect("GameJoined").withName("Game1").byUser("Siggi").isOk(done);
   });
 });
