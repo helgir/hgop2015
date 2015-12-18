@@ -11,3 +11,13 @@
 * nodejs - Keyrslu umhverfi sem virkar þverkerfa til að þroa netþjóna fyrir vefkerfi
 
 * bower - Nær í og installar pökkum, sér um að finna, niðurhala og vista því sem þú varst að leita af. Bower heldur utan um pakkana í skrá. Að auki sér hann um söfn og eiginleika sem koma frá vefsíðu
+
+
+
+### Jenkins scripts:
+
+#### Commit Stage
+[Jenkins script for commit stage](/jenkins_commit.sh)
+
+#### Acceptance Test Stage
+[Jenkins script for acceptance test stage](/jenkins_acceptance.sh)
